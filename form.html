@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Formularios</title>
+    <script>
+        function iniciar () 
+            {
+                nombre1 = document.getElementById("nombre");
+                nombre2 = document.getElementById("apellido");
+                nombre1.addEventListener("input", validasion, false);
+                nombre2.addEventListener("input", validasion, false);
+                validasion();
+                edad = document.getElementById ("miedad");
+                edad.addEventListener ("change", cambiarrango, false);
+                document.informacion.addEventListener ("invalid", check, true);
+                document.getElementById ("enviar").addEventListener ("click", enviar, false);
+                document.informacion.addEventListener (`input`, controlar, false);
+            }
+        function validasion() 
+            {
+                if (nombre1.value == '' && nombre2.value == '') 
+                    {
+                        nombre1.setCustomValidity('inserte al menos un nombre');
+                        nombre1.style.background = '#FFDDDD';
+                    } 
+                else 
+                    {
+                        nombre1.setCustomValidity('');
+                        nombre1.style.background = '#FFFFFF';
+                    }
+            } 
+        function cambiarrango ()
+            {
+                var salida = document.getElementById ("rango");
+                var calc = edad.value - 20;
+                if (calc < 20) 
+                    {
+                        calc = 0;
+                        edad.value = 20;
+                    }
+                salida.innerHTML = calc + ' a ' + edad.value;
+            }
+        function check (e) 
+            {
+                var elemento = e.target;
+                elemento.style.background = '#FFDDDD';
+            }
+        function enviar () 
+            {
+                var valido = document.informacion.checkValidity ();
+                if (valido) 
+                    {
+                        document.informacion.submit ();
+                    }
+            }
+        function controlar (e)
+            {
+                var elemento = e.target;
+                if (elemento.validity.valid)
+                    {
+                        elemento.style.background = `#FFFFFF`;
+                    }
+                else
+                    {
+                        elemento.style.background = `#FFDDDD`;
+                    }
+            }
+        window.addEventListener ("load", iniciar, false);
+    </script>
+</head>
+<body>
+ <section>
+     <form name="informacion" method="get">
+        Nombre:
+            <input type="text" name="nombre" id="nombre">
+        Apellido:
+            <input type="text" name="apellido" id="apellido">
+        Usuario:
+            <input pattern="[A-Za-z-123]{3,}" name="usuario" id="usuario" maxlength="10" title="solo caracteres  permitidos" required>
+        Email:
+            <input type="email" name="miemail" id="miemail" required>
+        Rango de Edad:
+            <input type="range" name="miedad" id="miedad" min="0" max="80" step="20" value="20">
+            <output id="rango">0 a 20</output>
+            <input type="submit" id="enviar" value="ingresar">
+    </form>
+ </section>
+</body>
+</html>

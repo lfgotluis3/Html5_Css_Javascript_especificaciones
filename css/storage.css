@@ -1,0 +1,30 @@
+#cajaformulario
+    {
+        float: left;
+        background: lightgray;
+        padding: 20px;
+        border: 3px solid green;
+    }
+#cajadatos
+    {
+        float: left;
+        width: 400px;
+        margin-left: 20px;
+        padding: 20px;
+        border: 3px solid green;
+    }
+#clave, #texto
+    {
+        width: 200px;
+    }
+#cajadatos > div
+    {
+        padding: 5px;
+        border-bottom: 3px solid lightgray;
+    }
+#grabar
+    {
+        background: green;
+        width: 100%;
+        color: white;
+    }

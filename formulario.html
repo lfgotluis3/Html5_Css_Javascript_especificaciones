@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <script src="js/formulario.js"></script>
+</head>
+<body>
+    <section>
+        <form name="informacion" method="get">
+            <!--nombre:
+            <input type="text" name="nombre" id="nombre">
+            Apellido:
+            <input type="text" name="apellido" id="apellido"-->
+            Usuario: 
+            <input pattern="[A-Za-z] {3}" name="usuario" id="usuario" maxlength="10" requiered>
+            Email:
+            <input type="email" name="miemail" id="miemail" requiered>
+            Rango de edad:
+            <input type="range" name="miedad" id="miedad" min="0" max="80" step="
+            20" value="20">
+            <output id="rango">0 a 20</output>
+            <input type="button" id="enviar" value="ingresar">
+        </form>
+    </section>
+</body>
+</html>
